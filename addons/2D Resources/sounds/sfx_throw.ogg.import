@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cft4mwaexrybp"
+path="res://.godot/imported/sfx_throw.ogg-6fb21f95cca4f31c773a1113a2aa8bc6.oggvorbisstr"
+
+[deps]
+
+source_file="res://addons/2D Resources/sounds/sfx_throw.ogg"
+dest_files=["res://.godot/imported/sfx_throw.ogg-6fb21f95cca4f31c773a1113a2aa8bc6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
