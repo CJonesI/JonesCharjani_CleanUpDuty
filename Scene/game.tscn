@@ -8,8 +8,8 @@
 [node name="Player" parent="." unique_id=169966166 instance=ExtResource("1_mhtsl")]
 position = Vector2(1, 1)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1417620291]
-position = Vector2(-6, -18)
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1417620291]
+position = Vector2(-7, -19)
 zoom = Vector2(5, 5)
 
 [node name="Tilemap" parent="." unique_id=650927877 instance=ExtResource("2_w51g1")]

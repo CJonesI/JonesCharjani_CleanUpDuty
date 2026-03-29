@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bi40ep63o0n78" path="res://addons/2D Resources/characters/DinoSprites - vita.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bk5dy6fo48uqx" path="res://Scripts/player.gd" id="1_y8w33"]
+[ext_resource type="AudioStream" uid="uid://bsjk1ik642acg" path="res://addons/2D Resources/sounds/sfx_jump.ogg" id="3_xa75v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kelma"]
 atlas = ExtResource("1_4flbx")
@@ -222,10 +223,16 @@ script = ExtResource("1_y8w33")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=271237917]
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_2hs0m")
-animation = &"idle"
+animation = &"sprint"
 autoplay = "idle"
-frame_progress = 0.50616807
+frame_progress = 0.15519778
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=257987609]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_1jxqw")
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="." unique_id=1829357102]
+stream = ExtResource("3_xa75v")
+volume_db = -5.814
+panning_strength = 0.76
+bus = &"SFX"
