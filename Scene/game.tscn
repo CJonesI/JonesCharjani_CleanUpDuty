@@ -14,3 +14,161 @@ zoom = Vector2(5, 5)
 
 [node name="Tilemap" parent="." unique_id=650927877 instance=ExtResource("2_w51g1")]
 position = Vector2(91, -1)
+
+[node name="Labels" type="Node2D" parent="." unique_id=512893368]
+
+[node name="Label" type="Label" parent="Labels" unique_id=184534523]
+offset_left = 191.0
+offset_top = -56.0
+offset_right = 252.0
+offset_bottom = -33.0
+text = "Tutorial"
+
+[node name="Label2" type="Label" parent="Labels" unique_id=1029893983]
+offset_left = 577.0
+offset_top = -25.0
+offset_right = 630.0
+offset_bottom = -2.0
+text = "Enemy"
+
+[node name="Label3" type="Label" parent="Labels" unique_id=474068420]
+offset_left = 1436.0
+offset_top = -282.0
+offset_right = 1514.0
+offset_bottom = -256.0
+text = "Enemy"
+
+[node name="Label4" type="Label" parent="Labels" unique_id=168906509]
+offset_left = 1671.0
+offset_top = 26.0
+offset_right = 1758.0
+offset_bottom = 60.0
+text = "Enemy"
+
+[node name="Label5" type="Label" parent="Labels" unique_id=838093941]
+offset_left = 2437.0
+offset_top = -124.0
+offset_right = 2523.0
+offset_bottom = -101.0
+text = "Enemy"
+
+[node name="Label6" type="Label" parent="Labels" unique_id=1790491668]
+offset_left = 3198.0
+offset_top = -106.0
+offset_right = 3269.0
+offset_bottom = -83.0
+text = "Enemy"
+
+[node name="Label8" type="Label" parent="Labels" unique_id=1668979063]
+offset_left = 3621.0
+offset_top = 68.0
+offset_right = 3698.0
+offset_bottom = 99.0
+text = "Enemy"
+
+[node name="Label7" type="Label" parent="Labels" unique_id=539267684]
+offset_left = 2490.0
+offset_top = 144.0
+offset_right = 2567.0
+offset_bottom = 167.0
+text = "Enemy"
+
+[node name="Label9" type="Label" parent="Labels" unique_id=1053530307]
+offset_left = 3745.0
+offset_top = 55.0
+offset_right = 3802.0
+offset_bottom = 78.0
+text = "Enemy"
+
+[node name="Label10" type="Label" parent="Labels" unique_id=1547111057]
+offset_left = 2117.0
+offset_top = 172.0
+offset_right = 2194.0
+offset_bottom = 211.0
+text = "Enemy"
+
+[node name="Label11" type="Label" parent="Labels" unique_id=1448621190]
+offset_left = 3733.0
+offset_top = -109.0
+offset_right = 3810.0
+offset_bottom = -86.0
+text = "Enemy"
+
+[node name="Label12" type="Label" parent="Labels" unique_id=2071304614]
+offset_left = 1152.0
+offset_top = -40.0
+offset_right = 1207.0
+text = "Gate"
+
+[node name="Label13" type="Label" parent="Labels" unique_id=2013775329]
+offset_left = 1553.0
+offset_top = -37.0
+offset_right = 1584.0
+offset_bottom = 64.0
+text = "D
+o
+o
+r"
+
+[node name="Label14" type="Label" parent="Labels" unique_id=2040639831]
+offset_left = 3923.0
+offset_top = 26.0
+offset_right = 4001.0
+offset_bottom = 49.0
+text = "Activation"
+
+[node name="Label15" type="Label" parent="Labels" unique_id=364364790]
+offset_left = 335.0
+offset_top = -30.0
+offset_right = 423.0
+offset_bottom = 6.0
+text = "Pickups"
+
+[node name="Label16" type="Label" parent="Labels" unique_id=896516395]
+offset_left = 794.0
+offset_top = -27.0
+offset_right = 930.0
+offset_bottom = -4.0
+text = "Pickups"
+
+[node name="Label17" type="Label" parent="Labels" unique_id=1295862840]
+offset_left = 1444.0
+offset_top = -155.0
+offset_right = 1534.0
+offset_bottom = -132.0
+text = "Pickups"
+
+[node name="Label18" type="Label" parent="Labels" unique_id=1815592397]
+offset_left = 2130.0
+offset_top = -130.0
+offset_right = 2241.0
+offset_bottom = -100.0
+text = "Pickups"
+
+[node name="Label19" type="Label" parent="Labels" unique_id=1095608425]
+offset_left = 1624.0
+offset_top = -151.0
+offset_right = 1722.0
+offset_bottom = -113.0
+text = "Pickups"
+
+[node name="Label20" type="Label" parent="Labels" unique_id=1370042686]
+offset_left = 2728.0
+offset_top = -107.0
+offset_right = 2870.0
+offset_bottom = -84.0
+text = "Pickups"
+
+[node name="Label21" type="Label" parent="Labels" unique_id=934333391]
+offset_left = 2755.0
+offset_top = 166.0
+offset_right = 2940.0
+offset_bottom = 189.0
+text = "Pickups"
+
+[node name="Label22" type="Label" parent="Labels" unique_id=259587223]
+offset_left = 3079.0
+offset_top = 233.0
+offset_right = 3215.0
+offset_bottom = 275.0
+text = "Pickups"
