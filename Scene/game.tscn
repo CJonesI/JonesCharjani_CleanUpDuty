@@ -1,39 +1,34 @@
 [gd_scene format=3 uid="uid://b8xaqfqb3nni6"]
 
 [ext_resource type="PackedScene" uid="uid://dq6fign47gsfg" path="res://Scene/player.tscn" id="1_mhtsl"]
-[ext_resource type="Script" uid="uid://bmkian7shv1qq" path="res://Scene/game_manager.gd" id="2_4jv7b"]
 [ext_resource type="PackedScene" uid="uid://c1lqhqrxa00s6" path="res://Scene/tilemap.tscn" id="2_w51g1"]
-[ext_resource type="PackedScene" uid="uid://ccvdbd6rxr1v" path="res://Scene/coin.tscn" id="4_03iqk"]
+[ext_resource type="PackedScene" uid="uid://botyogvpi1mbd" path="res://Scene/killzone.tscn" id="3_4jv7b"]
 
 [node name="Game" type="Node2D" unique_id=1683835924]
-
-[node name="Game manager" type="Node" parent="." unique_id=1825186465]
-unique_name_in_owner = true
-script = ExtResource("2_4jv7b")
 
 [node name="Player" parent="." unique_id=169966166 instance=ExtResource("1_mhtsl")]
 position = Vector2(0, 4)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1417620291]
 position = Vector2(-7, -19)
-zoom = Vector2(5, 5)
+zoom = Vector2(6, 6)
 
 [node name="Label" type="Label" parent="Player" unique_id=708227263]
-offset_left = -118.0
-offset_top = -79.0
-offset_right = -71.0
-offset_bottom = -56.0
+offset_left = -95.0
+offset_top = -77.0
+offset_right = -48.0
+offset_bottom = -54.0
 text = "coins:"
 
 [node name="Label2" type="Label" parent="Player" unique_id=62848636]
-offset_left = -116.0
-offset_top = -61.0
-offset_right = -75.0
-offset_bottom = -38.0
+offset_left = -94.0
+offset_top = -57.0
+offset_right = -53.0
+offset_bottom = -34.0
 text = "fruit:"
 
 [node name="Tilemap" parent="." unique_id=650927877 instance=ExtResource("2_w51g1")]
-position = Vector2(103, 4)
+position = Vector2(101, 2)
 
 [node name="Labels" type="Node2D" parent="." unique_id=512893368]
 
@@ -45,10 +40,10 @@ offset_bottom = -33.0
 text = "Tutorial"
 
 [node name="Label2" type="Label" parent="Labels" unique_id=1029893983]
-offset_left = 577.0
-offset_top = -25.0
-offset_right = 630.0
-offset_bottom = -2.0
+offset_left = 775.0
+offset_top = -27.0
+offset_right = 828.0
+offset_bottom = -4.0
 text = "Enemy"
 
 [node name="Label3" type="Label" parent="Labels" unique_id=474068420]
@@ -138,17 +133,15 @@ offset_bottom = 49.0
 text = "Activation"
 
 [node name="Label15" type="Label" parent="Labels" unique_id=364364790]
-offset_left = 335.0
-offset_top = -30.0
-offset_right = 423.0
-offset_bottom = 6.0
+offset_left = 362.0
+offset_top = -36.0
+offset_right = 450.0
 text = "Pickups"
 
 [node name="Label16" type="Label" parent="Labels" unique_id=896516395]
-offset_left = 794.0
-offset_top = -27.0
-offset_right = 930.0
-offset_bottom = -4.0
+offset_left = 990.0
+offset_top = -23.0
+offset_right = 1126.0
 text = "Pickups"
 
 [node name="Label17" type="Label" parent="Labels" unique_id=1295862840]
@@ -193,5 +186,19 @@ offset_right = 3215.0
 offset_bottom = 275.0
 text = "Pickups"
 
-[node name="Coin" parent="." unique_id=1113219063 instance=ExtResource("4_03iqk")]
-position = Vector2(154, -3)
+[node name="Killzones" type="Node2D" parent="." unique_id=1036242071]
+
+[node name="killzone" parent="Killzones" unique_id=265018908 instance=ExtResource("3_4jv7b")]
+position = Vector2(1263, 126)
+
+[node name="killzone2" parent="Killzones" unique_id=1493431341 instance=ExtResource("3_4jv7b")]
+position = Vector2(2372, 224)
+
+[node name="killzone3" parent="Killzones" unique_id=1010127744 instance=ExtResource("3_4jv7b")]
+position = Vector2(2907, 309)
+
+[node name="killzone4" parent="Killzones" unique_id=1056728445 instance=ExtResource("3_4jv7b")]
+position = Vector2(3291, 14)
+
+[node name="killzone5" parent="Killzones" unique_id=1288813189 instance=ExtResource("3_4jv7b")]
+position = Vector2(2972, 14)
