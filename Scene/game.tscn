@@ -2,7 +2,95 @@
 
 [ext_resource type="PackedScene" uid="uid://dq6fign47gsfg" path="res://Scene/player.tscn" id="1_mhtsl"]
 [ext_resource type="PackedScene" uid="uid://c1lqhqrxa00s6" path="res://Scene/tilemap.tscn" id="2_w51g1"]
-[ext_resource type="PackedScene" uid="uid://botyogvpi1mbd" path="res://Scene/killzone.tscn" id="3_4jv7b"]
+[ext_resource type="PackedScene" uid="uid://blhwwb4jnorgj" path="res://Scene/long_platform.tscn" id="3_4jv7b"]
+[ext_resource type="PackedScene" uid="uid://ccvdbd6rxr1v" path="res://Scene/coin.tscn" id="4_03iqk"]
+[ext_resource type="PackedScene" uid="uid://botyogvpi1mbd" path="res://Scene/killzone.tscn" id="5_ihreq"]
+[ext_resource type="PackedScene" uid="uid://bskqi24ovcil7" path="res://Scene/multi_fruit.tscn" id="6_thj8p"]
+
+[sub_resource type="Animation" id="Animation_4jv7b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1269, -184)]
+}
+
+[sub_resource type="Animation" id="Animation_03iqk"]
+resource_name = "move"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1269, -184), Vector2(1269, 7)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ihreq"]
+_data = {
+&"RESET": SubResource("Animation_4jv7b"),
+&"move": SubResource("Animation_03iqk")
+}
+
+[sub_resource type="Animation" id="Animation_ihreq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3443, -73)]
+}
+
+[sub_resource type="Animation" id="Animation_thj8p"]
+resource_name = "move"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3443, -73), Vector2(3443, 103)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h8jt7"]
+_data = {
+&"RESET": SubResource("Animation_ihreq"),
+&"move": SubResource("Animation_thj8p")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thj8p"]
+size = Vector2(78, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihreq"]
+size = Vector2(146, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8jt7"]
+size = Vector2(201, 7)
 
 [node name="Game" type="Node2D" unique_id=1683835924]
 
@@ -12,6 +100,8 @@ position = Vector2(0, 4)
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1417620291]
 position = Vector2(-7, -19)
 zoom = Vector2(6, 6)
+limit_bottom = 350
+limit_smoothed = true
 
 [node name="Label" type="Label" parent="Player" unique_id=708227263]
 offset_left = -95.0
@@ -109,22 +199,6 @@ offset_right = 3810.0
 offset_bottom = -86.0
 text = "Enemy"
 
-[node name="Label12" type="Label" parent="Labels" unique_id=2071304614]
-offset_left = 1152.0
-offset_top = -40.0
-offset_right = 1207.0
-text = "Gate"
-
-[node name="Label13" type="Label" parent="Labels" unique_id=2013775329]
-offset_left = 1553.0
-offset_top = -37.0
-offset_right = 1584.0
-offset_bottom = 64.0
-text = "D
-o
-o
-r"
-
 [node name="Label14" type="Label" parent="Labels" unique_id=2040639831]
 offset_left = 3923.0
 offset_top = 26.0
@@ -132,73 +206,145 @@ offset_right = 4001.0
 offset_bottom = 49.0
 text = "Activation"
 
-[node name="Label15" type="Label" parent="Labels" unique_id=364364790]
-offset_left = 362.0
-offset_top = -36.0
-offset_right = 450.0
-text = "Pickups"
+[node name="Platform" type="Node2D" parent="." unique_id=1989563952]
 
-[node name="Label16" type="Label" parent="Labels" unique_id=896516395]
-offset_left = 990.0
-offset_top = -23.0
-offset_right = 1126.0
-text = "Pickups"
+[node name="long platform" parent="Platform" unique_id=702083906 instance=ExtResource("3_4jv7b")]
+position = Vector2(1269, -184)
 
-[node name="Label17" type="Label" parent="Labels" unique_id=1295862840]
-offset_left = 1444.0
-offset_top = -155.0
-offset_right = 1534.0
-offset_bottom = -132.0
-text = "Pickups"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform/long platform" unique_id=236762831]
+libraries/ = SubResource("AnimationLibrary_ihreq")
+autoplay = &"move"
 
-[node name="Label18" type="Label" parent="Labels" unique_id=1815592397]
-offset_left = 2130.0
-offset_top = -130.0
-offset_right = 2241.0
-offset_bottom = -100.0
-text = "Pickups"
+[node name="long platform2" parent="Platform" unique_id=193810996 instance=ExtResource("3_4jv7b")]
+position = Vector2(3443, -73)
 
-[node name="Label19" type="Label" parent="Labels" unique_id=1095608425]
-offset_left = 1624.0
-offset_top = -151.0
-offset_right = 1722.0
-offset_bottom = -113.0
-text = "Pickups"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform/long platform2" unique_id=2123120733]
+libraries/ = SubResource("AnimationLibrary_h8jt7")
+autoplay = &"move"
 
-[node name="Label20" type="Label" parent="Labels" unique_id=1370042686]
-offset_left = 2728.0
-offset_top = -107.0
-offset_right = 2870.0
-offset_bottom = -84.0
-text = "Pickups"
+[node name="long platform3" parent="Platform" unique_id=1402991914 instance=ExtResource("3_4jv7b")]
+position = Vector2(1864, -81)
 
-[node name="Label21" type="Label" parent="Labels" unique_id=934333391]
-offset_left = 2755.0
-offset_top = 166.0
-offset_right = 2940.0
-offset_bottom = 189.0
-text = "Pickups"
+[node name="Coin" type="Node2D" parent="." unique_id=33730411]
 
-[node name="Label22" type="Label" parent="Labels" unique_id=259587223]
-offset_left = 3079.0
-offset_top = 233.0
-offset_right = 3215.0
-offset_bottom = 275.0
-text = "Pickups"
+[node name="coin" parent="Coin" unique_id=413598307 instance=ExtResource("4_03iqk")]
+position = Vector2(349, -4)
 
-[node name="Killzones" type="Node2D" parent="." unique_id=1036242071]
+[node name="coin2" parent="Coin" unique_id=1300870022 instance=ExtResource("4_03iqk")]
+position = Vector2(370, -3)
 
-[node name="killzone" parent="Killzones" unique_id=265018908 instance=ExtResource("3_4jv7b")]
-position = Vector2(1263, 126)
+[node name="coin3" parent="Coin" unique_id=990134058 instance=ExtResource("4_03iqk")]
+position = Vector2(392, -3)
 
-[node name="killzone2" parent="Killzones" unique_id=1493431341 instance=ExtResource("3_4jv7b")]
-position = Vector2(2372, 224)
+[node name="coin4" parent="Coin" unique_id=1791106410 instance=ExtResource("4_03iqk")]
+position = Vector2(415, -4)
 
-[node name="killzone3" parent="Killzones" unique_id=1010127744 instance=ExtResource("3_4jv7b")]
-position = Vector2(2907, 309)
+[node name="coin5" parent="Coin" unique_id=1334374311 instance=ExtResource("4_03iqk")]
+position = Vector2(440, -4)
 
-[node name="killzone4" parent="Killzones" unique_id=1056728445 instance=ExtResource("3_4jv7b")]
-position = Vector2(3291, 14)
+[node name="coin6" parent="Coin" unique_id=1634730365 instance=ExtResource("4_03iqk")]
+position = Vector2(988, -4)
 
-[node name="killzone5" parent="Killzones" unique_id=1288813189 instance=ExtResource("3_4jv7b")]
-position = Vector2(2972, 14)
+[node name="coin7" parent="Coin" unique_id=565955959 instance=ExtResource("4_03iqk")]
+position = Vector2(1006, -4)
+
+[node name="coin8" parent="Coin" unique_id=203383409 instance=ExtResource("4_03iqk")]
+position = Vector2(1455, -133)
+
+[node name="coin9" parent="Coin" unique_id=2010076720 instance=ExtResource("4_03iqk")]
+position = Vector2(1475, -133)
+
+[node name="coin10" parent="Coin" unique_id=1051296171 instance=ExtResource("4_03iqk")]
+position = Vector2(1024, -4)
+
+[node name="coin11" parent="Coin" unique_id=1922144946 instance=ExtResource("4_03iqk")]
+position = Vector2(1493, -133)
+
+[node name="coin12" parent="Coin" unique_id=71783008 instance=ExtResource("4_03iqk")]
+position = Vector2(2114, -100)
+
+[node name="coin13" parent="Coin" unique_id=1527815267 instance=ExtResource("4_03iqk")]
+position = Vector2(2136, -101)
+
+[node name="coin14" parent="Coin" unique_id=1007256121 instance=ExtResource("4_03iqk")]
+position = Vector2(2156, -100)
+
+[node name="coin15" parent="Coin" unique_id=604115682 instance=ExtResource("4_03iqk")]
+position = Vector2(2175, -101)
+
+[node name="coin16" parent="Coin" unique_id=1917762831 instance=ExtResource("4_03iqk")]
+position = Vector2(1641, -119)
+
+[node name="coin17" parent="Coin" unique_id=77024392 instance=ExtResource("4_03iqk")]
+position = Vector2(2727, -84)
+
+[node name="coin18" parent="Coin" unique_id=1897358879 instance=ExtResource("4_03iqk")]
+position = Vector2(2744, -85)
+
+[node name="coin19" parent="Coin" unique_id=2006273532 instance=ExtResource("4_03iqk")]
+position = Vector2(2764, -85)
+
+[node name="coin20" parent="Coin" unique_id=2056048277 instance=ExtResource("4_03iqk")]
+position = Vector2(2782, -83)
+
+[node name="coin21" parent="Coin" unique_id=555750835 instance=ExtResource("4_03iqk")]
+position = Vector2(2800, -83)
+
+[node name="coin22" parent="Coin" unique_id=1715470970 instance=ExtResource("4_03iqk")]
+position = Vector2(2730, 185)
+
+[node name="coin23" parent="Coin" unique_id=1746922324 instance=ExtResource("4_03iqk")]
+position = Vector2(2746, 184)
+
+[node name="coin24" parent="Coin" unique_id=1119951401 instance=ExtResource("4_03iqk")]
+position = Vector2(2762, 185)
+
+[node name="coin25" parent="Coin" unique_id=1656699583 instance=ExtResource("4_03iqk")]
+position = Vector2(2782, 187)
+
+[node name="coin26" parent="Coin" unique_id=1226593504 instance=ExtResource("4_03iqk")]
+position = Vector2(3084, 261)
+
+[node name="coin27" parent="Coin" unique_id=1798895495 instance=ExtResource("4_03iqk")]
+position = Vector2(3104, 262)
+
+[node name="coin28" parent="Coin" unique_id=1079589639 instance=ExtResource("4_03iqk")]
+position = Vector2(3123, 264)
+
+[node name="coin29" parent="Coin" unique_id=1449024398 instance=ExtResource("4_03iqk")]
+position = Vector2(3482, 122)
+
+[node name="coin30" parent="Coin" unique_id=310559259 instance=ExtResource("4_03iqk")]
+position = Vector2(3510, 121)
+
+[node name="Killzone" type="Node2D" parent="." unique_id=176177857]
+
+[node name="killzone" parent="Killzone" unique_id=682954245 instance=ExtResource("5_ihreq")]
+position = Vector2(1269, 99)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone/killzone" unique_id=853874820]
+position = Vector2(-9, 9)
+shape = SubResource("RectangleShape2D_thj8p")
+
+[node name="killzone2" parent="Killzone" unique_id=701082843 instance=ExtResource("5_ihreq")]
+position = Vector2(-132, 69)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone/killzone2" unique_id=1140908270]
+shape = SubResource("RectangleShape2D_ihreq")
+
+[node name="killzone3" parent="Killzone" unique_id=1559275082 instance=ExtResource("5_ihreq")]
+position = Vector2(2901, 304)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone/killzone3" unique_id=1396922914]
+shape = SubResource("RectangleShape2D_h8jt7")
+
+[node name="Fruit" type="Node2D" parent="." unique_id=1277866031]
+
+[node name="multi fruit" parent="Fruit" unique_id=289273145 instance=ExtResource("6_thj8p")]
+position = Vector2(297, -7)
+
+[node name="multi fruit2" parent="Fruit" unique_id=278545528 instance=ExtResource("6_thj8p")]
+position = Vector2(1390, 44)
+
+[node name="multi fruit3" parent="Fruit" unique_id=767877504 instance=ExtResource("6_thj8p")]
+position = Vector2(4160, 58)

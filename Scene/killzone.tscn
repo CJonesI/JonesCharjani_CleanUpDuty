@@ -1,36 +1,14 @@
 [gd_scene format=3 uid="uid://botyogvpi1mbd"]
 
-[sub_resource type="GDScript" id="GDScript_186nr"]
-script/source = "extends Area2D
+[ext_resource type="Script" uid="uid://clff667ln3rkv" path="res://Scripts/killzone.gd" id="1_d0lq1"]
 
-@onready var timer = $Timer
-@onready var main = $\".\"
-func _on_body_entered(body):
-	if body.name==\"Player\":
-		print(\"You Died\")
-		Engine.time_scale = 0.5
-	 
-		timer.start()
-	else: 
-		main.direction *= 0
-func _on_timer_timeout():
-	Engine.time_scale = 1.0
-	get_tree().reload_current_scene()
-"
+[node name="killzone" type="Area2D" unique_id=682954245]
+collision_mask = 2
+script = ExtResource("1_d0lq1")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwbl4"]
-size = Vector2(381, 14)
-
-[node name="killzone" type="Area2D" unique_id=265018908]
-script = SubResource("GDScript_186nr")
-
-[node name="Timer" type="Timer" parent="." unique_id=1872533061]
-wait_time = 0.5
+[node name="Timer" type="Timer" parent="." unique_id=1604726064]
+wait_time = 0.6
 one_shot = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2033931688]
-position = Vector2(13.5, 3)
-shape = SubResource("RectangleShape2D_xwbl4")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
