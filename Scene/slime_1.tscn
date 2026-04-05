@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://bd3p0atttcof7"]
+
+[ext_resource type="Texture2D" uid="uid://ft3p8r1vgr42" path="res://addons/2D Resources/enemies/Ogre Slime Spritesheet.png" id="1_jssn7"]
+[ext_resource type="PackedScene" uid="uid://botyogvpi1mbd" path="res://Scene/killzone.tscn" id="2_18ugd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2vjm"]
+atlas = ExtResource("1_jssn7")
+region = Rect2(48, 0, 16, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqlj7"]
+atlas = ExtResource("1_jssn7")
+region = Rect2(64, 0, 16, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xl1mr"]
+atlas = ExtResource("1_jssn7")
+region = Rect2(80, 0, 16, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk774"]
+atlas = ExtResource("1_jssn7")
+region = Rect2(96, 0, 16, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vofk2"]
+atlas = ExtResource("1_jssn7")
+region = Rect2(112, 0, 16, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kynkg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2vjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqlj7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xl1mr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk774")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vofk2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7wxs"]
+size = Vector2(14, 6)
+
+[node name="slime 1" type="Node2D" unique_id=1048995677]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1168766977]
+sprite_frames = SubResource("SpriteFrames_kynkg")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.19668318
+
+[node name="killzone" parent="." unique_id=682954245 instance=ExtResource("2_18ugd")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=1609151408]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_j7wxs")

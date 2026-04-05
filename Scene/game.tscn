@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://ccvdbd6rxr1v" path="res://Scene/coin.tscn" id="4_03iqk"]
 [ext_resource type="PackedScene" uid="uid://botyogvpi1mbd" path="res://Scene/killzone.tscn" id="5_ihreq"]
 [ext_resource type="PackedScene" uid="uid://bskqi24ovcil7" path="res://Scene/multi_fruit.tscn" id="6_thj8p"]
+[ext_resource type="PackedScene" uid="uid://b6oxnd32k6hhv" path="res://Scene/green_monster.tscn" id="7_sagxc"]
+[ext_resource type="PackedScene" uid="uid://dgthowsey16qt" path="res://Scene/red_monster.tscn" id="8_8f6ah"]
+[ext_resource type="PackedScene" uid="uid://bd3p0atttcof7" path="res://Scene/slime_1.tscn" id="9_8f6ah"]
 
 [sub_resource type="Animation" id="Animation_4jv7b"]
 length = 0.001
@@ -129,67 +132,11 @@ offset_right = 252.0
 offset_bottom = -33.0
 text = "Tutorial"
 
-[node name="Label2" type="Label" parent="Labels" unique_id=1029893983]
-offset_left = 775.0
-offset_top = -27.0
-offset_right = 828.0
-offset_bottom = -4.0
-text = "Enemy"
-
-[node name="Label3" type="Label" parent="Labels" unique_id=474068420]
-offset_left = 1436.0
-offset_top = -282.0
-offset_right = 1514.0
-offset_bottom = -256.0
-text = "Enemy"
-
-[node name="Label4" type="Label" parent="Labels" unique_id=168906509]
-offset_left = 1671.0
-offset_top = 26.0
-offset_right = 1758.0
-offset_bottom = 60.0
-text = "Enemy"
-
-[node name="Label5" type="Label" parent="Labels" unique_id=838093941]
-offset_left = 2437.0
-offset_top = -124.0
-offset_right = 2523.0
-offset_bottom = -101.0
-text = "Enemy"
-
-[node name="Label6" type="Label" parent="Labels" unique_id=1790491668]
-offset_left = 3198.0
-offset_top = -106.0
-offset_right = 3269.0
-offset_bottom = -83.0
-text = "Enemy"
-
-[node name="Label8" type="Label" parent="Labels" unique_id=1668979063]
-offset_left = 3621.0
-offset_top = 68.0
-offset_right = 3698.0
-offset_bottom = 99.0
-text = "Enemy"
-
 [node name="Label7" type="Label" parent="Labels" unique_id=539267684]
 offset_left = 2490.0
 offset_top = 144.0
 offset_right = 2567.0
 offset_bottom = 167.0
-text = "Enemy"
-
-[node name="Label9" type="Label" parent="Labels" unique_id=1053530307]
-offset_left = 3745.0
-offset_top = 55.0
-offset_right = 3802.0
-offset_bottom = 78.0
-text = "Enemy"
-
-[node name="Label10" type="Label" parent="Labels" unique_id=1547111057]
-offset_left = 2117.0
-offset_top = 172.0
-offset_right = 2194.0
-offset_bottom = 211.0
 text = "Enemy"
 
 [node name="Label11" type="Label" parent="Labels" unique_id=1448621190]
@@ -348,3 +295,32 @@ position = Vector2(1390, 44)
 
 [node name="multi fruit3" parent="Fruit" unique_id=767877504 instance=ExtResource("6_thj8p")]
 position = Vector2(4160, 58)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=500504308]
+
+[node name="green monster" parent="." unique_id=2035206122 instance=ExtResource("7_sagxc")]
+position = Vector2(765, -9)
+
+[node name="green monster2" parent="." unique_id=1839773876 instance=ExtResource("7_sagxc")]
+position = Vector2(1476, -266)
+
+[node name="red_monster" parent="." unique_id=2062022096 instance=ExtResource("8_8f6ah")]
+position = Vector2(1694, 54)
+
+[node name="red_monster2" parent="." unique_id=1974107959 instance=ExtResource("8_8f6ah")]
+position = Vector2(3570, 118)
+
+[node name="red_monster3" parent="." unique_id=1945890732 instance=ExtResource("8_8f6ah")]
+position = Vector2(2055, 198)
+
+[node name="slime 1" parent="." unique_id=1048995677 instance=ExtResource("9_8f6ah")]
+position = Vector2(1358, -129)
+
+[node name="slime 2" parent="." unique_id=2051498272 instance=ExtResource("9_8f6ah")]
+position = Vector2(2432, -99)
+
+[node name="slime 3" parent="." unique_id=1392428432 instance=ExtResource("9_8f6ah")]
+position = Vector2(3204, -83)
+
+[node name="slime 4" parent="." unique_id=1744005326 instance=ExtResource("9_8f6ah")]
+position = Vector2(3845, 78)
