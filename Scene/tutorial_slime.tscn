@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://befcsoaipls1j"]
+
+[ext_resource type="Texture2D" uid="uid://ckeoyfgc8hos2" path="res://addons/brackeys_platformer_assets/sprites/slime_green.png" id="1_k88la"]
+[ext_resource type="PackedScene" uid="uid://botyogvpi1mbd" path="res://Scene/killzone.tscn" id="2_17f4b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lyeu"]
+atlas = ExtResource("1_k88la")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fleho"]
+atlas = ExtResource("1_k88la")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_008fg"]
+atlas = ExtResource("1_k88la")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kchhc"]
+atlas = ExtResource("1_k88la")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5xm3m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lyeu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fleho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_008fg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kchhc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0uuj"]
+size = Vector2(14, 7)
+
+[node name="tutorial slime" type="Node2D" unique_id=1868512154]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=855263685]
+sprite_frames = SubResource("SpriteFrames_5xm3m")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.17811637
+
+[node name="killzone" parent="." unique_id=682954245 instance=ExtResource("2_17f4b")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=70179187]
+position = Vector2(0, 8.5)
+shape = SubResource("RectangleShape2D_v0uuj")

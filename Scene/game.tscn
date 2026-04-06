@@ -1,14 +1,19 @@
 [gd_scene format=3 uid="uid://b8xaqfqb3nni6"]
 
+[ext_resource type="Script" uid="uid://dxseto3aqc6sw" path="res://Scripts/game_manager.gd" id="1_ha7wd"]
 [ext_resource type="PackedScene" uid="uid://dq6fign47gsfg" path="res://Scene/player.tscn" id="1_mhtsl"]
+[ext_resource type="FontFile" uid="uid://c3xpyg0jr8pot" path="res://addons/2D Resources/fonts/PixelOperator8.ttf" id="2_0ka5k"]
 [ext_resource type="PackedScene" uid="uid://c1lqhqrxa00s6" path="res://Scene/tilemap.tscn" id="2_w51g1"]
 [ext_resource type="PackedScene" uid="uid://blhwwb4jnorgj" path="res://Scene/long_platform.tscn" id="3_4jv7b"]
+[ext_resource type="Script" uid="uid://dm0am536ncliu" path="res://Scripts/game_manager_2.gd" id="3_yjs1f"]
 [ext_resource type="PackedScene" uid="uid://ccvdbd6rxr1v" path="res://Scene/coin.tscn" id="4_03iqk"]
 [ext_resource type="PackedScene" uid="uid://botyogvpi1mbd" path="res://Scene/killzone.tscn" id="5_ihreq"]
 [ext_resource type="PackedScene" uid="uid://bskqi24ovcil7" path="res://Scene/multi_fruit.tscn" id="6_thj8p"]
 [ext_resource type="PackedScene" uid="uid://b6oxnd32k6hhv" path="res://Scene/green_monster.tscn" id="7_sagxc"]
 [ext_resource type="PackedScene" uid="uid://dgthowsey16qt" path="res://Scene/red_monster.tscn" id="8_8f6ah"]
 [ext_resource type="PackedScene" uid="uid://bd3p0atttcof7" path="res://Scene/slime_1.tscn" id="9_8f6ah"]
+[ext_resource type="PackedScene" uid="uid://btp57s5bcpi5p" path="res://Scene/slime_2.tscn" id="10_twwsd"]
+[ext_resource type="PackedScene" uid="uid://befcsoaipls1j" path="res://Scene/tutorial_slime.tscn" id="11_c6b8m"]
 
 [sub_resource type="Animation" id="Animation_4jv7b"]
 length = 0.001
@@ -86,6 +91,44 @@ _data = {
 &"move": SubResource("Animation_thj8p")
 }
 
+[sub_resource type="Animation" id="Animation_c6b8m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1864, -81)]
+}
+
+[sub_resource type="Animation" id="Animation_0ka5k"]
+resource_name = "move"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1864, -81), Vector2(1978, -81), Vector2(1854, -81), Vector2(1854, 46)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ha7wd"]
+_data = {
+&"RESET": SubResource("Animation_c6b8m"),
+&"move": SubResource("Animation_0ka5k")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thj8p"]
 size = Vector2(78, 12)
 
@@ -97,6 +140,32 @@ size = Vector2(201, 7)
 
 [node name="Game" type="Node2D" unique_id=1683835924]
 
+[node name="Game Manager" type="Node2D" parent="." unique_id=1170011124]
+unique_name_in_owner = true
+script = ExtResource("1_ha7wd")
+
+[node name="ScoreLabel" type="Label" parent="Game Manager" unique_id=708227263]
+offset_left = -95.0
+offset_top = -63.0
+offset_right = -48.0
+offset_bottom = -40.0
+theme_override_fonts/font = ExtResource("2_0ka5k")
+theme_override_font_sizes/font_size = 8
+text = "coins:"
+
+[node name="Game Manager 2" type="Node2D" parent="Game Manager" unique_id=108164871]
+unique_name_in_owner = true
+script = ExtResource("3_yjs1f")
+
+[node name="ScoreLabel2" type="Label" parent="Game Manager/Game Manager 2" unique_id=62848636]
+offset_left = -95.0
+offset_top = -50.0
+offset_right = -54.0
+offset_bottom = -27.0
+theme_override_fonts/font = ExtResource("2_0ka5k")
+theme_override_font_sizes/font_size = 8
+text = "fruit:"
+
 [node name="Player" parent="." unique_id=169966166 instance=ExtResource("1_mhtsl")]
 position = Vector2(0, 4)
 
@@ -105,20 +174,6 @@ position = Vector2(-7, -19)
 zoom = Vector2(6, 6)
 limit_bottom = 350
 limit_smoothed = true
-
-[node name="Label" type="Label" parent="Player" unique_id=708227263]
-offset_left = -95.0
-offset_top = -77.0
-offset_right = -48.0
-offset_bottom = -54.0
-text = "coins:"
-
-[node name="Label2" type="Label" parent="Player" unique_id=62848636]
-offset_left = -94.0
-offset_top = -57.0
-offset_right = -53.0
-offset_bottom = -34.0
-text = "fruit:"
 
 [node name="Tilemap" parent="." unique_id=650927877 instance=ExtResource("2_w51g1")]
 position = Vector2(101, 2)
@@ -131,20 +186,6 @@ offset_top = -56.0
 offset_right = 252.0
 offset_bottom = -33.0
 text = "Tutorial"
-
-[node name="Label7" type="Label" parent="Labels" unique_id=539267684]
-offset_left = 2490.0
-offset_top = 144.0
-offset_right = 2567.0
-offset_bottom = 167.0
-text = "Enemy"
-
-[node name="Label11" type="Label" parent="Labels" unique_id=1448621190]
-offset_left = 3733.0
-offset_top = -109.0
-offset_right = 3810.0
-offset_bottom = -86.0
-text = "Enemy"
 
 [node name="Label14" type="Label" parent="Labels" unique_id=2040639831]
 offset_left = 3923.0
@@ -171,6 +212,10 @@ autoplay = &"move"
 
 [node name="long platform3" parent="Platform" unique_id=1402991914 instance=ExtResource("3_4jv7b")]
 position = Vector2(1864, -81)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform/long platform3" unique_id=2080269076]
+libraries/ = SubResource("AnimationLibrary_ha7wd")
+autoplay = &"move"
 
 [node name="Coin" type="Node2D" parent="." unique_id=33730411]
 
@@ -298,29 +343,35 @@ position = Vector2(4160, 58)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=500504308]
 
-[node name="green monster" parent="." unique_id=2035206122 instance=ExtResource("7_sagxc")]
-position = Vector2(765, -9)
-
-[node name="green monster2" parent="." unique_id=1839773876 instance=ExtResource("7_sagxc")]
+[node name="green monster2" parent="Enemies" unique_id=1839773876 instance=ExtResource("7_sagxc")]
 position = Vector2(1476, -266)
 
-[node name="red_monster" parent="." unique_id=2062022096 instance=ExtResource("8_8f6ah")]
+[node name="red_monster" parent="Enemies" unique_id=2062022096 instance=ExtResource("8_8f6ah")]
 position = Vector2(1694, 54)
 
-[node name="red_monster2" parent="." unique_id=1974107959 instance=ExtResource("8_8f6ah")]
+[node name="red_monster2" parent="Enemies" unique_id=1974107959 instance=ExtResource("8_8f6ah")]
 position = Vector2(3570, 118)
 
-[node name="red_monster3" parent="." unique_id=1945890732 instance=ExtResource("8_8f6ah")]
+[node name="red_monster3" parent="Enemies" unique_id=1945890732 instance=ExtResource("8_8f6ah")]
 position = Vector2(2055, 198)
 
-[node name="slime 1" parent="." unique_id=1048995677 instance=ExtResource("9_8f6ah")]
-position = Vector2(1358, -129)
+[node name="slime 1" parent="Enemies" unique_id=1048995677 instance=ExtResource("9_8f6ah")]
+position = Vector2(1358, -133)
 
-[node name="slime 2" parent="." unique_id=2051498272 instance=ExtResource("9_8f6ah")]
+[node name="slime 2" parent="Enemies" unique_id=2051498272 instance=ExtResource("9_8f6ah")]
 position = Vector2(2432, -99)
 
-[node name="slime 3" parent="." unique_id=1392428432 instance=ExtResource("9_8f6ah")]
+[node name="slime 3" parent="Enemies" unique_id=1392428432 instance=ExtResource("9_8f6ah")]
 position = Vector2(3204, -83)
 
-[node name="slime 4" parent="." unique_id=1744005326 instance=ExtResource("9_8f6ah")]
+[node name="slime 4" parent="Enemies" unique_id=1744005326 instance=ExtResource("9_8f6ah")]
 position = Vector2(3845, 78)
+
+[node name="slime_2" parent="Enemies" unique_id=2094226441 instance=ExtResource("10_twwsd")]
+position = Vector2(3691, -85)
+
+[node name="slime_3" parent="Enemies" unique_id=161381241 instance=ExtResource("10_twwsd")]
+position = Vector2(2507, 172)
+
+[node name="tutorial slime" parent="." unique_id=1868512154 instance=ExtResource("11_c6b8m")]
+position = Vector2(765, -10)

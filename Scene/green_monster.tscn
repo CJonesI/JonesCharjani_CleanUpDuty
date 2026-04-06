@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b6oxnd32k6hhv"]
 
 [ext_resource type="Texture2D" uid="uid://ckeoyfgc8hos2" path="res://addons/brackeys_platformer_assets/sprites/slime_green.png" id="1_1rlqn"]
+[ext_resource type="Script" uid="uid://moo270oi01t8" path="res://Scripts/green_monster.gd" id="1_ljyak"]
 [ext_resource type="PackedScene" uid="uid://botyogvpi1mbd" path="res://Scene/killzone.tscn" id="2_ljyak"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h4p1n"]
@@ -193,15 +194,24 @@ animations = [{
 size = Vector2(14, 7)
 
 [node name="green monster" type="Node2D" unique_id=2035206122]
+script = ExtResource("1_ljyak")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1300480412]
 sprite_frames = SubResource("SpriteFrames_x2m38")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.24723786
+flip_h = true
 
 [node name="killzone" parent="." unique_id=682954245 instance=ExtResource("2_ljyak")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=2119458290]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_rcilq")
+
+[node name="Raycast right" type="RayCast2D" parent="." unique_id=999993429]
+position = Vector2(0, 7)
+target_position = Vector2(12, 0)
+
+[node name="Raycast left" type="RayCast2D" parent="." unique_id=2028806628]
+position = Vector2(0, 7)
+target_position = Vector2(-12, 0)
