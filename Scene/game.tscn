@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ccvdbd6rxr1v" path="res://Scene/coin.tscn" id="4_03iqk"]
 [ext_resource type="PackedScene" uid="uid://botyogvpi1mbd" path="res://Scene/killzone.tscn" id="5_ihreq"]
 [ext_resource type="PackedScene" uid="uid://bskqi24ovcil7" path="res://Scene/multi_fruit.tscn" id="6_thj8p"]
+[ext_resource type="FontFile" uid="uid://5llxjliitb2e" path="res://addons/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="6_vyw1f"]
 [ext_resource type="PackedScene" uid="uid://b6oxnd32k6hhv" path="res://Scene/green_monster.tscn" id="7_sagxc"]
 [ext_resource type="PackedScene" uid="uid://dgthowsey16qt" path="res://Scene/red_monster.tscn" id="8_8f6ah"]
 [ext_resource type="PackedScene" uid="uid://bd3p0atttcof7" path="res://Scene/slime_1.tscn" id="9_8f6ah"]
@@ -108,7 +109,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_0ka5k"]
 resource_name = "move"
-length = 3.0
+length = 4.0
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -117,7 +118,7 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3),
+"times": PackedFloat32Array(0, 1.2333333, 2.3666666, 3.3333333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1864, -81), Vector2(1978, -81), Vector2(1854, -81), Vector2(1854, 46)]
@@ -140,24 +141,21 @@ size = Vector2(201, 7)
 
 [node name="Game" type="Node2D" unique_id=1683835924]
 
-[node name="Game Manager" type="Node2D" parent="." unique_id=1170011124]
-unique_name_in_owner = true
-script = ExtResource("1_ha7wd")
+[node name="Player" parent="." unique_id=169966166 instance=ExtResource("1_mhtsl")]
+position = Vector2(0, 4)
 
-[node name="ScoreLabel" type="Label" parent="Game Manager" unique_id=708227263]
-offset_left = -95.0
-offset_top = -63.0
-offset_right = -48.0
-offset_bottom = -40.0
-theme_override_fonts/font = ExtResource("2_0ka5k")
-theme_override_font_sizes/font_size = 8
-text = "coins:"
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1417620291]
+position = Vector2(-7, -19)
+zoom = Vector2(5, 5)
+limit_bottom = 350
+limit_smoothed = true
 
-[node name="Game Manager 2" type="Node2D" parent="Game Manager" unique_id=108164871]
+[node name="Game Manager 2" type="Node2D" parent="Player" unique_id=108164871]
 unique_name_in_owner = true
+position = Vector2(0, -4)
 script = ExtResource("3_yjs1f")
 
-[node name="ScoreLabel2" type="Label" parent="Game Manager/Game Manager 2" unique_id=62848636]
+[node name="ScoreLabel2" type="Label" parent="Player/Game Manager 2" unique_id=62848636]
 offset_left = -95.0
 offset_top = -50.0
 offset_right = -54.0
@@ -166,26 +164,24 @@ theme_override_fonts/font = ExtResource("2_0ka5k")
 theme_override_font_sizes/font_size = 8
 text = "fruit:"
 
-[node name="Player" parent="." unique_id=169966166 instance=ExtResource("1_mhtsl")]
-position = Vector2(0, 4)
+[node name="Game Manager" type="Node2D" parent="Player" unique_id=1170011124]
+unique_name_in_owner = true
+position = Vector2(0, -4)
+script = ExtResource("1_ha7wd")
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1417620291]
-position = Vector2(-7, -19)
-zoom = Vector2(6, 6)
-limit_bottom = 350
-limit_smoothed = true
+[node name="ScoreLabel" type="Label" parent="Player/Game Manager" unique_id=708227263]
+offset_left = -95.0
+offset_top = -63.0
+offset_right = -48.0
+offset_bottom = -40.0
+theme_override_fonts/font = ExtResource("2_0ka5k")
+theme_override_font_sizes/font_size = 8
+text = "coins:"
 
 [node name="Tilemap" parent="." unique_id=650927877 instance=ExtResource("2_w51g1")]
 position = Vector2(101, 2)
 
 [node name="Labels" type="Node2D" parent="." unique_id=512893368]
-
-[node name="Label" type="Label" parent="Labels" unique_id=184534523]
-offset_left = 191.0
-offset_top = -56.0
-offset_right = 252.0
-offset_bottom = -33.0
-text = "Tutorial"
 
 [node name="Label14" type="Label" parent="Labels" unique_id=2040639831]
 offset_left = 3923.0
@@ -193,6 +189,28 @@ offset_top = 26.0
 offset_right = 4001.0
 offset_bottom = 49.0
 text = "Activation"
+
+[node name="Label" type="Label" parent="Labels" unique_id=1410734514]
+offset_left = 219.0
+offset_top = -73.0
+offset_right = 352.0
+offset_bottom = -32.0
+theme_override_fonts/font = ExtResource("6_vyw1f")
+theme_override_font_sizes/font_size = 8
+text = "To Move Use
+A/ Left arrow = Left
+D/ Right arrow = Right
+Space = Jump"
+
+[node name="Label2" type="Label" parent="Labels" unique_id=515284357]
+offset_left = 555.0
+offset_top = -57.0
+offset_right = 758.0
+offset_bottom = -34.0
+theme_override_fonts/font = ExtResource("6_vyw1f")
+theme_override_font_sizes/font_size = 8
+text = "Collect Coins and fruit 
+while you clean up the monsters!"
 
 [node name="Platform" type="Node2D" parent="." unique_id=1989563952]
 

@@ -22,6 +22,11 @@ buses/default_bus_layout="uid://bsvqbu1x34dto"
 [autoload]
 
 Music="*uid://dxdxhn4w525l7"
+DialogueManager="*uid://c3rodes2l3gxb"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [input]
 

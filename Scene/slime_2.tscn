@@ -4,6 +4,26 @@
 [ext_resource type="Script" uid="uid://xww11daepcod" path="res://Scripts/slime_2.gd" id="1_xi7ti"]
 [ext_resource type="PackedScene" uid="uid://botyogvpi1mbd" path="res://Scene/killzone.tscn" id="2_xi7ti"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xi7ti"]
+atlas = ExtResource("1_kqb68")
+region = Rect2(58, 76, 29, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvxe1"]
+atlas = ExtResource("1_kqb68")
+region = Rect2(87, 76, 29, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5aod"]
+atlas = ExtResource("1_kqb68")
+region = Rect2(116, 76, 29, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2bjo"]
+atlas = ExtResource("1_kqb68")
+region = Rect2(145, 76, 29, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbm5e"]
+atlas = ExtResource("1_kqb68")
+region = Rect2(174, 76, 29, 19)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_3bnwf"]
 atlas = ExtResource("1_kqb68")
 region = Rect2(48, 32, 16, 16)
@@ -44,36 +64,28 @@ region = Rect2(96, 0, 16, 18)
 atlas = ExtResource("1_kqb68")
 region = Rect2(112, 0, 16, 18)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pvxe1"]
-atlas = ExtResource("1_kqb68")
-region = Rect2(48, 18, 16, 18)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w5aod"]
-atlas = ExtResource("1_kqb68")
-region = Rect2(64, 18, 16, 18)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t2bjo"]
-atlas = ExtResource("1_kqb68")
-region = Rect2(80, 18, 16, 18)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cbm5e"]
-atlas = ExtResource("1_kqb68")
-region = Rect2(96, 18, 16, 18)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fmpbw"]
-atlas = ExtResource("1_kqb68")
-region = Rect2(112, 18, 16, 18)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hi0vk"]
-atlas = ExtResource("1_kqb68")
-region = Rect2(128, 18, 16, 18)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_averp"]
-atlas = ExtResource("1_kqb68")
-region = Rect2(144, 18, 16, 18)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_mcoom"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xi7ti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvxe1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5aod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2bjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbm5e")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3bnwf")
@@ -113,32 +125,6 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pvxe1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w5aod")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t2bjo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cbm5e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fmpbw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hi0vk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_averp")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1m55"]
@@ -149,21 +135,12 @@ script = ExtResource("1_xi7ti")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1599455615]
 sprite_frames = SubResource("SpriteFrames_mcoom")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.26027405
-flip_h = true
+frame_progress = 0.9852897
 
 [node name="killzone" parent="." unique_id=682954245 instance=ExtResource("2_xi7ti")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=292890814]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_t1m55")
-
-[node name="Raycast right" type="RayCast2D" parent="." unique_id=1572813906]
-position = Vector2(0, 7)
-target_position = Vector2(12, 0)
-
-[node name="Raycast left" type="RayCast2D" parent="." unique_id=1524875546]
-position = Vector2(0, 7)
-target_position = Vector2(-12, 0)

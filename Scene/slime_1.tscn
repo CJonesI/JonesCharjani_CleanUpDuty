@@ -4,6 +4,26 @@
 [ext_resource type="Texture2D" uid="uid://ft3p8r1vgr42" path="res://addons/2D Resources/enemies/Ogre Slime Spritesheet.png" id="1_jssn7"]
 [ext_resource type="PackedScene" uid="uid://botyogvpi1mbd" path="res://Scene/killzone.tscn" id="2_18ugd"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqref"]
+atlas = ExtResource("1_jssn7")
+region = Rect2(43, 76, 34, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdnf3"]
+atlas = ExtResource("1_jssn7")
+region = Rect2(77, 76, 34, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kkgy"]
+atlas = ExtResource("1_jssn7")
+region = Rect2(111, 76, 34, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53t85"]
+atlas = ExtResource("1_jssn7")
+region = Rect2(145, 76, 34, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q67b6"]
+atlas = ExtResource("1_jssn7")
+region = Rect2(179, 76, 34, 19)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_jssn7"]
 atlas = ExtResource("1_jssn7")
 region = Rect2(48, 32, 16, 16)
@@ -44,36 +64,28 @@ region = Rect2(96, 0, 16, 16)
 atlas = ExtResource("1_jssn7")
 region = Rect2(112, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xqref"]
-atlas = ExtResource("1_jssn7")
-region = Rect2(48, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hdnf3"]
-atlas = ExtResource("1_jssn7")
-region = Rect2(64, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1kkgy"]
-atlas = ExtResource("1_jssn7")
-region = Rect2(80, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_53t85"]
-atlas = ExtResource("1_jssn7")
-region = Rect2(96, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q67b6"]
-atlas = ExtResource("1_jssn7")
-region = Rect2(112, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qn0b7"]
-atlas = ExtResource("1_jssn7")
-region = Rect2(128, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ouqhi"]
-atlas = ExtResource("1_jssn7")
-region = Rect2(144, 16, 16, 16)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_kynkg"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqref")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdnf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kkgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53t85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q67b6")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 8.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jssn7")
@@ -113,32 +125,6 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xqref")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hdnf3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1kkgy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_53t85")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q67b6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qn0b7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ouqhi")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j7wxs"]
@@ -149,21 +135,12 @@ script = ExtResource("1_18ugd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1168766977]
 sprite_frames = SubResource("SpriteFrames_kynkg")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.8963961
-flip_h = true
+frame_progress = 0.1454881
 
 [node name="killzone" parent="." unique_id=682954245 instance=ExtResource("2_18ugd")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=1609151408]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_j7wxs")
-
-[node name="Raycast right" type="RayCast2D" parent="." unique_id=1046751892]
-position = Vector2(0, 7)
-target_position = Vector2(12, 0)
-
-[node name="Raycast left" type="RayCast2D" parent="." unique_id=195021705]
-position = Vector2(0, 7)
-target_position = Vector2(-12, 0)

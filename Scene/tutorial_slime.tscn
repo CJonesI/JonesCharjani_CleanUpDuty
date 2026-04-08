@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://befcsoaipls1j"]
 
+[ext_resource type="Script" uid="uid://btbmvfup14b14" path="res://Scripts/tutorial_slime.gd" id="1_17f4b"]
 [ext_resource type="Texture2D" uid="uid://ckeoyfgc8hos2" path="res://addons/brackeys_platformer_assets/sprites/slime_green.png" id="1_k88la"]
 [ext_resource type="PackedScene" uid="uid://botyogvpi1mbd" path="res://Scene/killzone.tscn" id="2_17f4b"]
 
@@ -42,7 +43,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0uuj"]
 size = Vector2(14, 7)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k88la"]
+size = Vector2(15, 4)
+
 [node name="tutorial slime" type="Node2D" unique_id=1868512154]
+script = ExtResource("1_17f4b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=855263685]
 sprite_frames = SubResource("SpriteFrames_5xm3m")
@@ -55,3 +60,11 @@ frame_progress = 0.17811637
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=70179187]
 position = Vector2(0, 8.5)
 shape = SubResource("RectangleShape2D_v0uuj")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=974792006]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=431788604]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_k88la")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

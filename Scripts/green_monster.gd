@@ -7,6 +7,7 @@ var direction = 1
 @onready var raycast_left: RayCast2D = $"Raycast left"
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+
 func _process(delta):
 	if raycast_right.is_colliding():
 		direction = -1
@@ -17,3 +18,8 @@ func _process(delta):
 		animated_sprite.flip_h = false
 		
 	position. x+= direction * SPEED * delta
+
+
+func _on_hitbox_body_entered(body: Node2D):
+	if body.name == "Player":
+		queue_free()
