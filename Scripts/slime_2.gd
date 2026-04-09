@@ -11,5 +11,5 @@ var direction = 1
 
 
 func _on_hitbox_body_entered(body: Node2D):
-	if body.name == "player":
+	if body.name == "Player":
 		queue_free()

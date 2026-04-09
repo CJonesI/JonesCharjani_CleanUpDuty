@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://botyogvpi1mbd" path="res://Scene/killzone.tscn" id="5_ihreq"]
 [ext_resource type="PackedScene" uid="uid://bskqi24ovcil7" path="res://Scene/multi_fruit.tscn" id="6_thj8p"]
 [ext_resource type="FontFile" uid="uid://5llxjliitb2e" path="res://addons/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="6_vyw1f"]
+[ext_resource type="PackedScene" uid="uid://xa18o1itgj0m" path="res://Scene/npc.tscn" id="7_cvvdq"]
 [ext_resource type="PackedScene" uid="uid://b6oxnd32k6hhv" path="res://Scene/green_monster.tscn" id="7_sagxc"]
 [ext_resource type="PackedScene" uid="uid://dgthowsey16qt" path="res://Scene/red_monster.tscn" id="8_8f6ah"]
 [ext_resource type="PackedScene" uid="uid://bd3p0atttcof7" path="res://Scene/slime_1.tscn" id="9_8f6ah"]
@@ -394,5 +395,5 @@ position = Vector2(2507, 172)
 [node name="tutorial slime" parent="." unique_id=1868512154 instance=ExtResource("11_c6b8m")]
 position = Vector2(765, -10)
 
-[node name="slime_2" parent="." unique_id=1348099131 instance=ExtResource("10_twwsd")]
-position = Vector2(90, 0)
+[node name="npc" parent="." unique_id=1586687946 instance=ExtResource("7_cvvdq")]
+position = Vector2(1418, 54)

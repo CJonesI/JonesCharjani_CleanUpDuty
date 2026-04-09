@@ -13,3 +13,5 @@ func get_damage(value: int):
 	
 	if healthPoints <= 0:
 		died.emit()
+		
+		
