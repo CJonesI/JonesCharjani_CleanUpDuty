@@ -3,6 +3,43 @@
 [ext_resource type="Script" uid="uid://btbmvfup14b14" path="res://Scripts/tutorial_slime.gd" id="1_17f4b"]
 [ext_resource type="Texture2D" uid="uid://ckeoyfgc8hos2" path="res://addons/brackeys_platformer_assets/sprites/slime_green.png" id="1_k88la"]
 [ext_resource type="PackedScene" uid="uid://botyogvpi1mbd" path="res://Scene/killzone.tscn" id="2_17f4b"]
+[ext_resource type="PackedScene" uid="uid://bqdfneln2dk73" path="res://Scene/hitbox.tscn" id="4_4lyeu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xm3m"]
+atlas = ExtResource("1_k88la")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0uuj"]
+atlas = ExtResource("1_k88la")
+region = Rect2(72, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjxir"]
+atlas = ExtResource("1_k88la")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f54ky"]
+atlas = ExtResource("1_k88la")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smexk"]
+atlas = ExtResource("1_k88la")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrnnv"]
+atlas = ExtResource("1_k88la")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5htuy"]
+atlas = ExtResource("1_k88la")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6tk4"]
+atlas = ExtResource("1_k88la")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbhvp"]
+atlas = ExtResource("1_k88la")
+region = Rect2(72, 48, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4lyeu"]
 atlas = ExtResource("1_k88la")
@@ -24,6 +61,43 @@ region = Rect2(72, 24, 24, 24)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_5xm3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0uuj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjxir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f54ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smexk")
+}],
+"loop": true,
+"name": &"die",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrnnv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5htuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6tk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbhvp")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_4lyeu")
 }, {
 "duration": 1.0,
@@ -43,17 +117,17 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0uuj"]
 size = Vector2(14, 7)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k88la"]
-size = Vector2(15, 4)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgkva"]
+size = Vector2(12, 5)
 
 [node name="tutorial slime" type="Node2D" unique_id=1868512154]
 script = ExtResource("1_17f4b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=855263685]
 sprite_frames = SubResource("SpriteFrames_5xm3m")
-animation = &"idle"
+animation = &"die"
 autoplay = "idle"
-frame_progress = 0.17811637
+frame_progress = 0.97818893
 
 [node name="killzone" parent="." unique_id=682954245 instance=ExtResource("2_17f4b")]
 
@@ -61,10 +135,12 @@ frame_progress = 0.17811637
 position = Vector2(0, 8.5)
 shape = SubResource("RectangleShape2D_v0uuj")
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=974792006]
+[node name="hitbox" parent="." unique_id=340056401 instance=ExtResource("4_4lyeu")]
+visibility_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=431788604]
-position = Vector2(0.5, 1)
-shape = SubResource("RectangleShape2D_k88la")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=386418578]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_jgkva")
 
-[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="died" from="hitbox" to="." method="_on_hitbox_died"]
+[connection signal="hurted" from="hitbox" to="." method="_on_hitbox_hurted"]

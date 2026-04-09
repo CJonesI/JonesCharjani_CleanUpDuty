@@ -193,9 +193,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rcilq"]
 size = Vector2(14, 7)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljyak"]
-size = Vector2(13, 5.25)
-
 [node name="green monster" type="Node2D" unique_id=2035206122]
 script = ExtResource("1_ljyak")
 
@@ -218,11 +215,3 @@ target_position = Vector2(12, 0)
 [node name="Raycast left" type="RayCast2D" parent="." unique_id=2028806628]
 position = Vector2(0, 7)
 target_position = Vector2(-12, 0)
-
-[node name="hit area" type="Area2D" parent="." unique_id=1860731564]
-
-[node name="hitbox" type="CollisionShape2D" parent="hit area" unique_id=2028788696]
-position = Vector2(0, 1.625)
-shape = SubResource("RectangleShape2D_ljyak")
-
-[connection signal="body_entered" from="hit area" to="." method="_on_hitbox_body_entered"]
