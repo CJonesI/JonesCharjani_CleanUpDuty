@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b0h8toa8iybk2"]
+
+[node name="Main Menu" type="Control" unique_id=1699177248]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="button manager" type="Control" parent="." unique_id=774390164]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="start" type="Button" parent="button manager" unique_id=491512577]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Start Game"
+
+[node name="quit" type="Button" parent="button manager" unique_id=808171752]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 38.0
+offset_right = 94.0
+offset_bottom = 69.0
+text = "Quit Game"

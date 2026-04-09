@@ -213,9 +213,6 @@ theme_override_font_sizes/font_size = 8
 text = "Collect Coins and fruit 
 while you clean up the monsters!"
 
-[node name="npc" parent="Labels" unique_id=1586687946 instance=ExtResource("7_cvvdq")]
-position = Vector2(1418, 54)
-
 [node name="Platform" type="Node2D" parent="." unique_id=1989563952]
 
 [node name="long platform" parent="Platform" unique_id=702083906 instance=ExtResource("3_4jv7b")]
@@ -397,3 +394,6 @@ position = Vector2(2507, 172)
 
 [node name="tutorial slime" parent="." unique_id=1868512154 instance=ExtResource("11_c6b8m")]
 position = Vector2(765, -10)
+
+[node name="npc" parent="." unique_id=1586687946 instance=ExtResource("7_cvvdq")]
+position = Vector2(1418, 54)
