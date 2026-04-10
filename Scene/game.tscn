@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bd3p0atttcof7" path="res://Scene/slime_1.tscn" id="9_8f6ah"]
 [ext_resource type="PackedScene" uid="uid://btp57s5bcpi5p" path="res://Scene/slime_2.tscn" id="10_twwsd"]
 [ext_resource type="PackedScene" uid="uid://befcsoaipls1j" path="res://Scene/tutorial_slime.tscn" id="11_c6b8m"]
+[ext_resource type="PackedScene" uid="uid://c6tujd0mym5av" path="res://Scene/door.tscn" id="17_m52p7"]
 
 [sub_resource type="Animation" id="Animation_4jv7b"]
 length = 0.001
@@ -335,7 +336,7 @@ position = Vector2(3104, 262)
 position = Vector2(3123, 264)
 
 [node name="coin29" parent="Coin" unique_id=1449024398 instance=ExtResource("4_03iqk")]
-position = Vector2(3482, 122)
+position = Vector2(3486, 108)
 
 [node name="coin30" parent="Coin" unique_id=310559259 instance=ExtResource("4_03iqk")]
 position = Vector2(3510, 121)
@@ -416,3 +417,14 @@ position = Vector2(2507, 172)
 
 [node name="tutorial slime" parent="." unique_id=1868512154 instance=ExtResource("11_c6b8m")]
 position = Vector2(765, -10)
+
+[node name="Doors" type="Node2D" parent="." unique_id=107294603]
+
+[node name="door2" parent="Doors" unique_id=1095218429 instance=ExtResource("17_m52p7")]
+position = Vector2(1550, 51)
+
+[node name="door" parent="Doors" unique_id=2065865301 instance=ExtResource("17_m52p7")]
+position = Vector2(1096, -12)
+
+[node name="door3" parent="Doors" unique_id=861011219 instance=ExtResource("17_m52p7")]
+position = Vector2(4030, 50)

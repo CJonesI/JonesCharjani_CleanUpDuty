@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-class_name Playersidescroller
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
