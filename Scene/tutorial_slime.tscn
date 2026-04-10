@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://btbmvfup14b14" path="res://Scripts/tutorial_slime.gd" id="1_17f4b"]
 [ext_resource type="Texture2D" uid="uid://ckeoyfgc8hos2" path="res://addons/brackeys_platformer_assets/sprites/slime_green.png" id="1_k88la"]
 [ext_resource type="PackedScene" uid="uid://botyogvpi1mbd" path="res://Scene/killzone.tscn" id="2_17f4b"]
-[ext_resource type="PackedScene" uid="uid://bqdfneln2dk73" path="res://Scene/hitbox.tscn" id="4_4lyeu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xm3m"]
 atlas = ExtResource("1_k88la")
@@ -117,17 +116,18 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0uuj"]
 size = Vector2(14, 7)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgkva"]
-size = Vector2(12, 5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17f4b"]
+size = Vector2(12, 6)
 
 [node name="tutorial slime" type="Node2D" unique_id=1868512154]
 script = ExtResource("1_17f4b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=855263685]
 sprite_frames = SubResource("SpriteFrames_5xm3m")
-animation = &"die"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.97818893
+frame = 2
+frame_progress = 0.11969866
 
 [node name="killzone" parent="." unique_id=682954245 instance=ExtResource("2_17f4b")]
 
@@ -135,12 +135,11 @@ frame_progress = 0.97818893
 position = Vector2(0, 8.5)
 shape = SubResource("RectangleShape2D_v0uuj")
 
-[node name="hitbox" parent="." unique_id=340056401 instance=ExtResource("4_4lyeu")]
-visibility_layer = 2
+[node name="hit area" type="Area2D" parent="." unique_id=1699864900]
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=386418578]
-position = Vector2(0, 1.5)
-shape = SubResource("RectangleShape2D_jgkva")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit area" unique_id=1901357763]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_17f4b")
 
-[connection signal="died" from="hitbox" to="." method="_on_hitbox_died"]
-[connection signal="hurted" from="hitbox" to="." method="_on_hitbox_hurted"]
+[connection signal="body_entered" from="hit area" to="." method="_on_hit_area_body_entered"]

@@ -140,13 +140,16 @@ size = Vector2(146, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8jt7"]
 size = Vector2(201, 7)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvvdq"]
+size = Vector2(148, 13)
+
 [node name="Game" type="Node2D" unique_id=1683835924]
 
 [node name="Main Menu" parent="." unique_id=1699177248 instance=ExtResource("1_cvvdq")]
-offset_left = -78.0
-offset_top = -73.0
-offset_right = -38.0
-offset_bottom = -33.0
+offset_left = -1848.0
+offset_top = 12.0
+offset_right = -1808.0
+offset_bottom = 52.0
 
 [node name="Player" parent="." unique_id=169966166 instance=ExtResource("1_mhtsl")]
 position = Vector2(0, 4)
@@ -190,13 +193,6 @@ position = Vector2(101, 2)
 
 [node name="Labels" type="Node2D" parent="." unique_id=512893368]
 
-[node name="Label14" type="Label" parent="Labels" unique_id=2040639831]
-offset_left = 3923.0
-offset_top = 26.0
-offset_right = 4001.0
-offset_bottom = 49.0
-text = "Activation"
-
 [node name="Label" type="Label" parent="Labels" unique_id=1410734514]
 offset_left = 219.0
 offset_top = -73.0
@@ -218,6 +214,16 @@ theme_override_fonts/font = ExtResource("6_vyw1f")
 theme_override_font_sizes/font_size = 8
 text = "Collect Coins and fruit 
 while you clean up the monsters!"
+
+[node name="Label3" type="Label" parent="Labels" unique_id=1750778145]
+offset_left = 883.0
+offset_top = -57.0
+offset_right = 1368.0
+offset_bottom = -34.0
+theme_override_fonts/font = ExtResource("2_0ka5k")
+theme_override_font_sizes/font_size = 8
+text = "There are doors you'll need to open. 
+Use the fruit to open them!"
 
 [node name="Platform" type="Node2D" parent="." unique_id=1989563952]
 
@@ -355,6 +361,13 @@ position = Vector2(2901, 304)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone/killzone3" unique_id=1396922914]
 shape = SubResource("RectangleShape2D_h8jt7")
 
+[node name="killzone4" parent="Killzone" unique_id=759708111 instance=ExtResource("5_ihreq")]
+position = Vector2(2339, 221)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone/killzone4" unique_id=783568790]
+position = Vector2(58, 3.5)
+shape = SubResource("RectangleShape2D_cvvdq")
+
 [node name="Fruit" type="Node2D" parent="." unique_id=1277866031]
 
 [node name="multi fruit" parent="Fruit" unique_id=289273145 instance=ExtResource("6_thj8p")]
@@ -365,6 +378,9 @@ position = Vector2(1390, 44)
 
 [node name="multi fruit3" parent="Fruit" unique_id=767877504 instance=ExtResource("6_thj8p")]
 position = Vector2(4160, 58)
+
+[node name="multi fruit4" parent="Fruit" unique_id=914105545 instance=ExtResource("6_thj8p")]
+position = Vector2(1598, -295)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=500504308]
 

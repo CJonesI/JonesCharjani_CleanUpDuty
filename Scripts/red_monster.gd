@@ -19,3 +19,8 @@ func _process(delta):
 		animated_sprite.flip_h = false
 		
 	position. x+= direction * SPEED * delta
+
+
+func _on_hit_area_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		queue_free()

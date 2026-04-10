@@ -130,17 +130,28 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j7wxs"]
 size = Vector2(14, 6)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18ugd"]
+size = Vector2(13, 4)
+
 [node name="slime 1" type="Node2D" unique_id=1048995677]
 script = ExtResource("1_18ugd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1168766977]
 sprite_frames = SubResource("SpriteFrames_kynkg")
-animation = &"attack"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.1454881
 
 [node name="killzone" parent="." unique_id=682954245 instance=ExtResource("2_18ugd")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=1609151408]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_j7wxs")
+
+[node name="hit area" type="Area2D" parent="." unique_id=281136000]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit area" unique_id=354661580]
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_18ugd")
+
+[connection signal="body_entered" from="hit area" to="." method="_on_hit_area_body_entered"]

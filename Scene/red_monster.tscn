@@ -116,6 +116,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wyuq"]
 size = Vector2(14, 7)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fob0y"]
+size = Vector2(12, 8)
+
 [node name="red_monster" type="Node2D" unique_id=2062022096]
 script = ExtResource("1_fob0y")
 
@@ -138,3 +141,11 @@ target_position = Vector2(12, 0)
 [node name="Raycast left" type="RayCast2D" parent="." unique_id=840544760]
 position = Vector2(0, 7)
 target_position = Vector2(-12, 0)
+
+[node name="hit area" type="Area2D" parent="." unique_id=241384784]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit area" unique_id=1031642273]
+shape = SubResource("RectangleShape2D_fob0y")
+
+[connection signal="body_entered" from="hit area" to="." method="_on_hit_area_body_entered"]
