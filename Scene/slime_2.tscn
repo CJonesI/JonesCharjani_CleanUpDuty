@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bd8c8f6fu1q6r" path="res://addons/2D Resources/enemies/Green Slime Spritesheet.png" id="1_kqb68"]
 [ext_resource type="Script" uid="uid://xww11daepcod" path="res://Scripts/slime_2.gd" id="1_xi7ti"]
 [ext_resource type="PackedScene" uid="uid://botyogvpi1mbd" path="res://Scene/killzone.tscn" id="2_xi7ti"]
-[ext_resource type="PackedScene" uid="uid://bqdfneln2dk73" path="res://Scene/hitbox.tscn" id="4_3bnwf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xi7ti"]
 atlas = ExtResource("1_kqb68")
@@ -129,10 +128,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1m55"]
-size = Vector2(14, 6)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wnrm"]
 size = Vector2(14, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xi7ti"]
+size = Vector2(13, 4)
 
 [node name="slime_2" type="Node2D" unique_id=2094226441]
 script = ExtResource("1_xi7ti")
@@ -145,14 +144,14 @@ autoplay = "idle"
 [node name="killzone" parent="." unique_id=682954245 instance=ExtResource("2_xi7ti")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=292890814]
-position = Vector2(0, 4)
+position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_t1m55")
 
-[node name="hitbox" parent="." unique_id=340056401 instance=ExtResource("4_3bnwf")]
+[node name="hit area" type="Area2D" parent="." unique_id=1424493703]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1429741596]
-position = Vector2(0, -2)
-shape = SubResource("RectangleShape2D_7wnrm")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit area" unique_id=711208322]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_xi7ti")
 
-[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="hit area" to="." method="_on_hit_area_body_entered"]

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b8xaqfqb3nni6"]
 
+[ext_resource type="PackedScene" uid="uid://b0h8toa8iybk2" path="res://Scene/main_menu.tscn" id="1_cvvdq"]
 [ext_resource type="Script" uid="uid://dxseto3aqc6sw" path="res://Scripts/game_manager.gd" id="1_ha7wd"]
 [ext_resource type="PackedScene" uid="uid://dq6fign47gsfg" path="res://Scene/player.tscn" id="1_mhtsl"]
 [ext_resource type="FontFile" uid="uid://c3xpyg0jr8pot" path="res://addons/2D Resources/fonts/PixelOperator8.ttf" id="2_0ka5k"]
@@ -140,6 +141,12 @@ size = Vector2(146, 20)
 size = Vector2(201, 7)
 
 [node name="Game" type="Node2D" unique_id=1683835924]
+
+[node name="Main Menu" parent="." unique_id=1699177248 instance=ExtResource("1_cvvdq")]
+offset_left = -78.0
+offset_top = -73.0
+offset_right = -38.0
+offset_bottom = -33.0
 
 [node name="Player" parent="." unique_id=169966166 instance=ExtResource("1_mhtsl")]
 position = Vector2(0, 4)
@@ -393,6 +400,3 @@ position = Vector2(2507, 172)
 
 [node name="tutorial slime" parent="." unique_id=1868512154 instance=ExtResource("11_c6b8m")]
 position = Vector2(765, -10)
-
-[node name="slime_2" parent="." unique_id=1348099131 instance=ExtResource("10_twwsd")]
-position = Vector2(90, 0)

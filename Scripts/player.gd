@@ -41,8 +41,7 @@ func _physics_process(delta: float):
 	else:
 		animated_sprite.play("jump")
 	
-	if Input.is_action_pressed("sprint"):
-		animated_sprite.play("sprint")
+
 	
 		
 	if direction:

@@ -10,6 +10,8 @@ var direction = 1
 
 
 
-func _on_hitbox_body_entered(body: Node2D):
+
+func _on_hit_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
+		animated_sprite.play("hit")
 		queue_free()
