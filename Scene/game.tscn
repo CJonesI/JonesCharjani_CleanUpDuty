@@ -423,8 +423,5 @@ position = Vector2(765, -10)
 [node name="door2" parent="Doors" unique_id=1095218429 instance=ExtResource("17_m52p7")]
 position = Vector2(1550, 51)
 
-[node name="door" parent="Doors" unique_id=2065865301 instance=ExtResource("17_m52p7")]
-position = Vector2(1096, -12)
-
 [node name="door3" parent="Doors" unique_id=861011219 instance=ExtResource("17_m52p7")]
 position = Vector2(4030, 50)
