@@ -141,7 +141,7 @@ _data = {
 &"pickup": SubResource("Animation_6hqyc")
 }
 
-[node name="multi fruit" type="Area2D" unique_id=289273145]
+[node name="multi_fruit" type="Area2D" unique_id=289273145]
 collision_mask = 2
 script = ExtResource("1_d14kh")
 

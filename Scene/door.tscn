@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://c6vvsmj03uxt6" path="res://addons/2D Resources/tilesets/props.png" id="2_8kni7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmuuw"]
-size = Vector2(20, 24)
+size = Vector2(15, 61)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwlx2"]
-size = Vector2(20, 107)
+size = Vector2(23, 34.5)
 
 [sub_resource type="Animation" id="Animation_t1p54"]
 length = 0.001
@@ -72,7 +72,7 @@ region_enabled = true
 region_rect = Rect2(13, 62, 24, 37)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1180021172]
-position = Vector2(0, 4)
+position = Vector2(2.5, -14.5)
 shape = SubResource("RectangleShape2D_lmuuw")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1673593967]
@@ -80,7 +80,6 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=381443768]
-position = Vector2(0, -34.5)
 shape = SubResource("RectangleShape2D_xwlx2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1960459544]

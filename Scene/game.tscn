@@ -425,3 +425,9 @@ position = Vector2(1550, 51)
 
 [node name="door3" parent="Doors" unique_id=861011219 instance=ExtResource("17_m52p7")]
 position = Vector2(4030, 50)
+
+[node name="door" parent="." unique_id=1226198424 instance=ExtResource("17_m52p7")]
+position = Vector2(1110, -12)
+
+[node name="door2" parent="." unique_id=142319997 instance=ExtResource("17_m52p7")]
+position = Vector2(507, -18)
