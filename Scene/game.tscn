@@ -226,6 +226,13 @@ theme_override_font_sizes/font_size = 8
 text = "There are doors you'll need to open. 
 Use the fruit to open them!"
 
+[node name="Label4" type="Label" parent="Labels" unique_id=733036399]
+offset_left = 3965.0
+offset_top = -198.0
+offset_right = 4052.0
+offset_bottom = -175.0
+text = "Game Over"
+
 [node name="Platform" type="Node2D" parent="." unique_id=1989563952]
 
 [node name="long platform" parent="Platform" unique_id=702083906 instance=ExtResource("3_4jv7b")]
